@@ -1,0 +1,266 @@
+[
+      {
+        "place_id": "65a127a1f96aa10a03f0f3b4",
+        "google_place_id": "ChIJb10b0ndX3TsRFk4rYtYNfC8",
+        "name": "Kothaligad",
+        "is_custom": 0,
+        "categories": [
+          {
+            "category_id": "64c2445fbef5ac785b809d71",
+            "name": "Culture",
+            "is_primary": 1
+          }
+        ],
+        "description": "A centuries-old hillside fort near Karjat, Maharashtra, beckons hikers with a blend of history and natural beauty. The site features a temple, a cave, and panoramic views, promising a rewarding trek through picturesque landscapes.",
+        "rating": 4.6,
+        "review_count": 1803,
+        "coordinates": {
+          "latitude": 18.9920875,
+          "longitude": 73.5129844
+        },
+        "is_AI_generated": true,
+        "list_count": {
+          "message": "Featured in 12 other lists",
+          "count": 12,
+          "api_url": "/voyager/widgets/widget?widget_id=l_ps&type=list&limit=10&page=1&module_place_ids=65a127a1f96aa10a03f0f3b4"
+        },
+        "cover_media": {
+          "small": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/65a127a1f96aa10a03f0f3b4/photos/medium/65a127a1f96aa10a03f0f3b4-1748256619611",
+          "medium": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/65a127a1f96aa10a03f0f3b4/photos/large/65a127a1f96aa10a03f0f3b4-1748256619611",
+          "large": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/65a127a1f96aa10a03f0f3b4/photos/original/65a127a1f96aa10a03f0f3b4-1748256619611"
+        },
+        "blurhash": ":vH{D_Diax%Mxuj@WBof?wR%jZt7t7ofayj@xa%MofWBj[ofj[WBxvj[oMaxWBaxj[ayt8j[axWBWAWBayayk9ogayRjWBWUayayogj@ayWBWBWBj[j[ofoffiWBaeayj[j[",
+        "open_hours_text": "Open 24 hours"
+      },
+      {
+        "place_id": "666ae8bc57f6f0dc787e1cc7",
+        "google_place_id": "ChIJQfreZaGK3TsRfmNoRKQ6I70",
+        "name": "Harihar Fort",
+        "is_custom": 0,
+        "categories": [
+          {
+            "category_id": "64c2445fbef5ac785b809d71",
+            "name": "Culture",
+            "is_primary": 1
+          }
+        ],
+        "description": "Harihargad Fort",
+        "rating": 4.7,
+        "review_count": 4721,
+        "coordinates": {
+          "latitude": 19.904847,
+          "longitude": 73.4719233
+        },
+        "is_AI_generated": true,
+        "list_count": {
+          "message": "Featured in 57 other lists",
+          "count": 57,
+          "api_url": "/voyager/widgets/widget?widget_id=l_ps&type=list&limit=10&page=1&module_place_ids=666ae8bc57f6f0dc787e1cc7"
+        },
+        "cover_media": {
+          "small": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1cc7/photos/medium/666ae8bc57f6f0dc787e1cc7-1718282428521",
+          "medium": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1cc7/photos/large/666ae8bc57f6f0dc787e1cc7-1718282428521",
+          "large": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1cc7/photos/original/666ae8bc57f6f0dc787e1cc7-1718282428521"
+        },
+        "blurhash": ":,DAQFR*bdj[a~ofj?j[KnofbIfRj[a}aya}ogbJe,bHaxjYbHf6ROWVjXjsj?f5a}fjw@oIkDaya}j[j[a}NIaxbcj[j[bIf6fRxaW=WVbHayfkf6jsNIj]n$f6jsf5a}f6",
+        "open_hours_text": "Open till 6:00PM"
+      },
+      {
+        "place_id": "666ae8bb57f6f0dc787e1cc6",
+        "google_place_id": "ChIJtaK8Fx5e3TsR_AVHMivq1Mk",
+        "name": "Gorakhgad Fort",
+        "is_custom": 0,
+        "categories": [
+          {
+            "category_id": "64c2445fbef5ac785b809d71",
+            "name": "Culture",
+            "is_primary": 1
+          }
+        ],
+        "description": "Gorakhgad Fort",
+        "rating": 4.7,
+        "review_count": 1344,
+        "coordinates": {
+          "latitude": 19.1922398,
+          "longitude": 73.5404042
+        },
+        "is_AI_generated": true,
+        "list_count": {
+          "message": "Featured in 9 other lists",
+          "count": 9,
+          "api_url": "/voyager/widgets/widget?widget_id=l_ps&type=list&limit=10&page=1&module_place_ids=666ae8bb57f6f0dc787e1cc6"
+        },
+        "cover_media": {
+          "small": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bb57f6f0dc787e1cc6/photos/medium/666ae8bb57f6f0dc787e1cc6-1718282428597",
+          "medium": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bb57f6f0dc787e1cc6/photos/large/666ae8bb57f6f0dc787e1cc6-1718282428597",
+          "large": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bb57f6f0dc787e1cc6/photos/original/666ae8bb57f6f0dc787e1cc6-1718282428597"
+        },
+        "blurhash": ":iFF?A%g%gWBofafj]of^-xuxvRPWBayayof%NWBRjRiR%ofaxoMxbaxRij[azt8oMoft8j]WBt7oft7j@WBxtayWBj[j[ayRjRjs;aeWBayj@WUWBWBxuayWBj]j[juj[j[",
+        "open_hours_text": "Open till 6:03PM"
+      },
+      {
+        "place_id": "666ae8bc57f6f0dc787e1ccb",
+        "google_place_id": "ChIJn9PhpE9e3TsR2umGHVFtBEU",
+        "name": "Siddhagad Fort (Bale Killa)",
+        "is_custom": 0,
+        "categories": [
+          {
+            "category_id": "64c2445fbef5ac785b809d71",
+            "name": "Culture",
+            "is_primary": 1
+          }
+        ],
+        "description": "Siddhagad Fort",
+        "rating": 4.6,
+        "review_count": 313,
+        "coordinates": {
+          "latitude": 19.15868739999999,
+          "longitude": 73.5240349
+        },
+        "is_AI_generated": false,
+        "list_count": {
+          "message": "Featured in 1 other lists",
+          "count": 1,
+          "api_url": "/voyager/widgets/widget?widget_id=l_ps&type=list&limit=10&page=1&module_place_ids=666ae8bc57f6f0dc787e1ccb"
+        },
+        "cover_media": {
+          "small": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1ccb/photos/medium/666ae8bc57f6f0dc787e1ccb-1718282429442",
+          "medium": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1ccb/photos/large/666ae8bc57f6f0dc787e1ccb-1718282429442",
+          "large": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1ccb/photos/original/666ae8bc57f6f0dc787e1ccb-1718282429442"
+        },
+        "blurhash": ":sJ*FxRPR.oebHj[ayj[.TRjjZa}j[j[fPaz?Ha}n#j[j@j?WVay%2j[NHjZbHa}fPWVofj[oeWVoLj]oKoLofa#bHj@j[oLazayt7oLoLayjtWVayWVt7a}fQayWVj[j[j[",
+        "open_hours_text": "Open 24 hours"
+      },
+      {
+        "place_id": "666ae8bc57f6f0dc787e1cc9",
+        "google_place_id": "ChIJwUCoCtZx3TsRgRWOTUbWZjY",
+        "name": "AJOBAGAD FORT",
+        "is_custom": 0,
+        "categories": [
+          {
+            "category_id": "64c2445fbef5ac785b809d71",
+            "name": "Culture",
+            "is_primary": 1
+          }
+        ],
+        "description": "Azobagad Fort",
+        "rating": 4.9,
+        "review_count": 9,
+        "coordinates": {
+          "latitude": 19.4610837,
+          "longitude": 73.6732918
+        },
+        "is_AI_generated": true,
+        "list_count": {
+          "message": "Featured in 3 other lists",
+          "count": 3,
+          "api_url": "/voyager/widgets/widget?widget_id=l_ps&type=list&limit=10&page=1&module_place_ids=666ae8bc57f6f0dc787e1cc9"
+        },
+        "cover_media": {
+          "small": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1cc9/photos/medium/666ae8bc57f6f0dc787e1cc9-1718282429541",
+          "medium": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1cc9/photos/large/666ae8bc57f6f0dc787e1cc9-1718282429541",
+          "large": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1cc9/photos/original/666ae8bc57f6f0dc787e1cc9-1718282429541"
+        },
+        "blurhash": ":JEC,*%M00IUx]ayoftR_NxuIURjfjRjRjt7M_azxvofRjWAayaxozaxWBofazayofayaeayj]j[ofj[WCfRt7j[WBayayfjayWBWBayofj[WVaxj[ofoyayWBazofj[j[ay",
+        "open_hours_text": ""
+      },
+      {
+        "place_id": "666ae8bd57f6f0dc787e1cd4",
+        "google_place_id": "ChIJq6qqvjbw5zsRRHAk5zL_Hgg",
+        "name": "Vikatgad Peb Fort",
+        "is_custom": 0,
+        "categories": [
+          {
+            "category_id": "64c2445fbef5ac785b809d71",
+            "name": "Culture",
+            "is_primary": 1
+          }
+        ],
+        "description": "Vikatgad Fort",
+        "rating": 4.7,
+        "review_count": 1814,
+        "coordinates": {
+          "latitude": 19.02906699999999,
+          "longitude": 73.2770484
+        },
+        "is_AI_generated": true,
+        "list_count": {
+          "message": "Featured in 3 other lists",
+          "count": 3,
+          "api_url": "/voyager/widgets/widget?widget_id=l_ps&type=list&limit=10&page=1&module_place_ids=666ae8bd57f6f0dc787e1cd4"
+        },
+        "cover_media": {
+          "small": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bd57f6f0dc787e1cd4/photos/medium/666ae8bd57f6f0dc787e1cd4-1718282430593",
+          "medium": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bd57f6f0dc787e1cd4/photos/large/666ae8bd57f6f0dc787e1cd4-1718282430593",
+          "large": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bd57f6f0dc787e1cd4/photos/original/666ae8bd57f6f0dc787e1cd4-1718282430593"
+        },
+        "blurhash": ":|JuS|D%Rjt7j@oeofof~qRjWBayofofj[j[t7xvj[Rjj[j[j[j[t6t7j]ofWBaej[j[t7ayofj]WBaxaef8afj[ofaej]WBWBayayj[WBkBayayayWBj[WBa{fRayj[ayay",
+        "open_hours_text": "Open 24 hours"
+      },
+      {
+        "place_id": "666ae8bc57f6f0dc787e1cca",
+        "google_place_id": "ChIJ-6nd5IPl5zsRuMWGL9lhdtQ",
+        "name": "Prabalgad Fort",
+        "is_custom": 0,
+        "categories": [
+          {
+            "category_id": "64c2445fbef5ac785b809d71",
+            "name": "Culture",
+            "is_primary": 1
+          }
+        ],
+        "description": "Prabalgad Fort",
+        "rating": 4.6,
+        "review_count": 1921,
+        "coordinates": {
+          "latitude": 18.9803573,
+          "longitude": 73.2217144
+        },
+        "is_AI_generated": true,
+        "list_count": {
+          "message": "Featured in 7 other lists",
+          "count": 7,
+          "api_url": "/voyager/widgets/widget?widget_id=l_ps&type=list&limit=10&page=1&module_place_ids=666ae8bc57f6f0dc787e1cca"
+        },
+        "cover_media": {
+          "small": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1cca/photos/medium/666ae8bc57f6f0dc787e1cca-1718282429498",
+          "medium": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1cca/photos/large/666ae8bc57f6f0dc787e1cca-1718282429498",
+          "large": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bc57f6f0dc787e1cca/photos/original/666ae8bc57f6f0dc787e1cca-1718282429498"
+        },
+        "blurhash": ":TEf$Jt6kER-ads.ofWX?KV[ozbGV@azkCa#%4R%oga#a_fij]oftRWCoLoLaxWVa#oMogWEWCoxj?j[oef8f8j[bEfkjaj[f8ayWEbFafayafjbfjayofayjbaybGj?oLj[",
+        "open_hours_text": "Open till 8:00PM"
+      },
+      {
+        "place_id": "666ae8bd57f6f0dc787e1cd0",
+        "google_place_id": "ChIJJQDCvnQO5zsRNXY2SdQ2Hvs",
+        "name": "Kohoj Fort",
+        "is_custom": 0,
+        "categories": [
+          {
+            "category_id": "64c2445fbef5ac785b809d71",
+            "name": "Culture",
+            "is_primary": 1
+          }
+        ],
+        "description": "Kohoj Fort",
+        "rating": 4.6,
+        "review_count": 716,
+        "coordinates": {
+          "latitude": 19.6697824,
+          "longitude": 72.9887921
+        },
+        "is_AI_generated": false,
+        "list_count": {
+          "message": "Featured in 2 other lists",
+          "count": 2,
+          "api_url": "/voyager/widgets/widget?widget_id=l_ps&type=list&limit=10&page=1&module_place_ids=666ae8bd57f6f0dc787e1cd0"
+        },
+        "cover_media": {
+          "small": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bd57f6f0dc787e1cd0/photos/medium/666ae8bd57f6f0dc787e1cd0-1718282430460",
+          "medium": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bd57f6f0dc787e1cd0/photos/large/666ae8bd57f6f0dc787e1cd0-1718282430460",
+          "large": "https://d3iq0vcqnt2b9k.cloudfront.net/google-places/666ae8bd57f6f0dc787e1cd0/photos/original/666ae8bd57f6f0dc787e1cd0-1718282430460"
+        },
+        "blurhash": ":nD0Q0WAt7a{j[fjayj[_4WBozj@j[j[aykC?baeofj[ayj[ayj[-;j?ayoeayfRayj[-pt6WBofWBj[ayj[xut7WBofayayj[ayxtt7Rkofayayj[ayxtt7WBfRj[ayj[ay",
+        "open_hours_text": "Open 24 hours"
+      }
+    ]

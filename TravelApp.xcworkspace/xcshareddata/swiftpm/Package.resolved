@@ -1,0 +1,24 @@
+{
+  "originHash" : "96a4070ea5ba7b06e859e8fb69d3ce286e7a7b8b0965bf9fa8f0ad2e6f0a90e6",
+  "pins" : [
+    {
+      "identity" : "hero",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HeroTransitions/Hero.git",
+      "state" : {
+        "revision" : "670b81ed3d95f7183bbc009d0ec67c71506557b5",
+        "version" : "1.6.4"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/kingfisher",
+      "state" : {
+        "revision" : "cf8be20d07654570554c8a8a4952bc8a5766a8b0",
+        "version" : "8.9.0"
+      }
+    }
+  ],
+  "version" : 3
+}

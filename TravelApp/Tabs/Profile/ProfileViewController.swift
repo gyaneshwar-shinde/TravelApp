@@ -13,7 +13,7 @@ final class ProfileViewController: UIViewController {
 
     private let profile = ProfileData(
         name: "Gyaneshwar Shinde",
-        handle: "@gyanesh",
+        handle: "@gyaneshwar_shinde",
         bio: "iOS Mobile Engineer. Always chasing the next horizon. ✈️",
         avatarSymbol: "person.crop.circle.fill",
         stats: [

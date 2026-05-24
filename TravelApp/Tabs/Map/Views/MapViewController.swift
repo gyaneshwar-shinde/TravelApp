@@ -2,14 +2,6 @@
 //  MapViewController.swift
 //  TravelApp
 //
-//  Created by Laptop X on 24/05/26.
-//
-
-
-//
-//  MapViewController.swift
-//  TravelApp
-//
 //  Created by Laptop X on 23/05/26.
 //
 
@@ -116,7 +108,13 @@ final class MapViewController: UIViewController {
 
     private func loadPlaces() {
         places = MapPlace.loadFromBundle()
-        annotations = places.enumerated().map { PlaceAnnotation(place: $1, index: $0) }
+        annotations = places.enumerated().map { idx, place in
+            PlaceAnnotation(
+                place: place,
+                index: idx,
+                highlight: PlaceHighlight.compute(for: place, in: places)
+            )
+        }
         mapView.addAnnotations(annotations)
         collectionView.reloadData()
     }

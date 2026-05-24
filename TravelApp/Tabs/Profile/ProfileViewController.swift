@@ -289,7 +289,12 @@ final class ProfileViewController: UIViewController {
     }
 
     @objc private func handleMenuTap(_ sender: MenuRowControl) {
-        print("Tapped: \(sender.menuTitle ?? "")")
+        switch sender.menuTitle {
+        case "Wishlist":
+            navigationController?.pushViewController(WishlistViewController(), animated: true)
+        default:
+            print("Tapped: \(sender.menuTitle ?? "")")
+        }
     }
 
     @objc private func handleSignOut() {

@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct TravelList: Decodable {
+struct TravelList: Codable {
     let id: String
     let title: String
     let shortDescription: String?
@@ -27,7 +27,7 @@ struct TravelList: Decodable {
     }
 }
 
-struct Creator: Decodable {
+struct Creator: Codable {
     let userId: String
     let username: String
     let firstName: String
@@ -45,13 +45,13 @@ struct Creator: Decodable {
     var fullName: String { "\(firstName) \(lastName)" }
 }
 
-struct CoverPhoto: Decodable {
+struct CoverPhoto: Codable {
     let small: String
     let medium: String
     let large: String
 }
 
-struct ListStats: Decodable {
+struct ListStats: Codable {
     let viewCount: Int
     let placeCount: Int
     let savedCount: Int
@@ -67,7 +67,7 @@ struct ListStats: Decodable {
     }
 }
 
-struct Place: Decodable {
+struct Place: Codable {
     let placeId: String
     let name: String
     let description: String?
@@ -91,7 +91,7 @@ struct Place: Decodable {
     }
 }
 
-struct PlaceCategory: Decodable {
+struct PlaceCategory: Codable {
     let name: String
     let isPrimary: Int?
 

@@ -1,6 +1,6 @@
 # TravelApp
 
-A native **iOS** travel discovery app built with **UIKit**. Browse curated travel lists, explore places on an interactive map, and view a profile screen—all powered by bundled JSON data and remote images from CloudFront.
+A native **iOS** travel discovery app built with **UIKit**. Browse curated travel lists, save favorites to a **wishlist**, explore places on an interactive map, and view a profile screen—all powered by bundled JSON data, local persistence, and remote images from CloudFront.
 
 ---
 
@@ -26,10 +26,20 @@ A native **iOS** travel discovery app built with **UIKit**. Browse curated trave
 ### Explore
 - Two-column grid of **travel lists** loaded from `lists.json`
 - Each card shows cover image, title, and stats (places, views, saves)
+- **Heart button** on each card to add or remove a list from your wishlist (with pop animation)
 - Tap a list to open **list detail** with:
   - Edge-to-edge cover header (creator, descriptions, stats)
   - Scrollable list of places with ratings and categories
 - **Hero** shared-element transitions between grid cover and detail header
+
+### Wishlist
+- Save travel lists from **Explore** by tapping the heart on any list card
+- **Profile → Wishlist** opens a dedicated screen of saved lists
+- Full-width rows with cover thumbnail, title, description, stats, and a remove heart button
+- Tap a row to open **list detail**; tap the heart on a row to remove from the wishlist
+- **Empty state** when no lists are saved, with guidance to use Explore
+- **Persists across app launches** via `UserDefaults` (`wishlist.travelLists.v1`)
+- **Live sync** across screens via `NotificationCenter` (`.wishlistDidChange`)
 
 ### Map
 - Full-screen **MapKit** map with custom place markers
@@ -43,8 +53,9 @@ A native **iOS** travel discovery app built with **UIKit**. Browse curated trave
 
 ### Profile
 - Scrollable profile UI with avatar, bio, trip stats, and menu rows
-- Placeholder actions (edit profile, menu items, sign out) log to console
-- Uses in-memory dummy data (not persisted)
+- **Wishlist** menu item navigates to `WishlistViewController`
+- Other menu actions (edit profile, saved places, settings, sign out) are placeholders that log to console
+- Profile stats and bio use in-memory dummy data (not persisted)
 
 ---
 
@@ -71,6 +82,7 @@ A native **iOS** travel discovery app built with **UIKit**. Browse curated trave
 | Remote images (Explore) | [Kingfisher](https://github.com/onevcat/Kingfisher) 8.9.0+ |
 | Placeholders | BlurHash decoder (Wolt MIT implementation, in-app) |
 | Data | Local JSON in app bundle |
+| Persistence | `UserDefaults` for wishlisted travel lists |
 | Dependency managers | Swift Package Manager (primary), CocoaPods workspace (empty `Podfile`) |
 
 ---
@@ -90,7 +102,8 @@ TravelApp/
     │   ├── HeroNavigationController.swift
     │   └── Core/
     │       ├── BlurHashCache.swift   # BlurHash decode + NSCache
-    │       └── UIImageViewCaching.swift  # Kingfisher + blurhash helper
+    │       ├── UIImageViewCaching.swift  # Kingfisher + blurhash helper
+    │       └── WishlistStore.swift   # Wishlist persistence + notifications
     ├── Tabs/
     │   ├── MainTabBarController.swift
     │   ├── Data/
@@ -115,7 +128,10 @@ TravelApp/
     │   │       ├── PlaceMarkerView.swift
     │   │       └── ImageLoader.swift
     │   └── Profile/
-    │       └── ProfileViewController.swift
+    │       ├── ProfileViewController.swift
+    │       ├── WishlistViewController.swift
+    │       └── Components/
+    │           └── WishlistRowCell.swift
     ├── Assets.xcassets
     ├── Base.lproj/LaunchScreen.storyboard
     └── Info.plist
@@ -125,7 +141,7 @@ TravelApp/
 
 ## Architecture
 
-The app follows a **feature-based folder layout** with UIKit view controllers and reusable collection/table cells. There is no separate networking or persistence layer; data is read once from the bundle at runtime.
+The app follows a **feature-based folder layout** with UIKit view controllers and reusable collection/table cells. Explore and Map data is read from the app bundle at runtime; the **wishlist** is persisted locally via `WishlistStore`.
 
 ```
 SceneDelegate
@@ -134,11 +150,13 @@ SceneDelegate
             │       └── ListDetailViewController (push)
             ├── HeroNavigationController → MapViewController
             └── HeroNavigationController → ProfileViewController
+                    └── WishlistViewController (push)
 ```
 
 - **Scene lifecycle:** `SceneDelegate` creates the window and assigns `MainTabBarController` as the root.
 - **Navigation:** Each tab uses `HeroNavigationController` so push transitions can use Hero IDs (e.g. list cover → detail header).
 - **Models:** `Decodable` structs map JSON snake_case keys via `CodingKeys`.
+- **Wishlist:** `WishlistStore.shared` is the single source of truth; mutations post `.wishlistDidChange` so Explore cards and the wishlist screen stay in sync.
 - **No backend:** Lists and map places are static JSON; images load from HTTPS URLs embedded in JSON.
 
 ---
@@ -180,6 +198,19 @@ Bundle.main.url(forResource: "places", withExtension: "json")
 - Remote images hosted on CloudFront (`d3iq0vcqnt2b9k.cloudfront.net`)
 
 Ensure both JSON files are members of the **TravelApp** target so they are copied into the app bundle.
+
+### Wishlist → `UserDefaults`
+
+Wishlisted lists are stored as encoded `[TravelList]` JSON under the key `wishlist.travelLists.v1`.
+
+| API | Purpose |
+|-----|---------|
+| `WishlistStore.shared.isWishlisted(id:)` | Check if a list is saved |
+| `WishlistStore.shared.toggle(_:)` | Add or remove a list; returns new state |
+| `WishlistStore.shared.remove(id:)` | Remove by list ID |
+| `Notification.Name.wishlistDidChange` | Posted after every add/remove |
+
+Newly wishlisted lists are inserted at the **top** of the array. `ExploreCardCell` and `WishlistViewController` observe this notification to refresh UI without restarting the app.
 
 ---
 
@@ -245,12 +276,18 @@ flowchart TD
     Tabs --> Profile[Profile Tab]
     Explore --> LoadLists[Decode lists.json]
     LoadLists --> Grid[Collection grid]
+    Grid -->|Tap heart| WishlistStore[WishlistStore]
     Grid -->|Tap list| Detail[ListDetailViewController]
     Detail --> Places[Place cards + header]
     Map --> LoadPlaces[Decode places.json]
     LoadPlaces --> MK[MKMapView + annotations]
     MK <-->|Sync| Carousel[Horizontal card carousel]
     Profile --> Dummy[Static ProfileData]
+    Profile -->|Wishlist menu| WishlistVC[WishlistViewController]
+    WishlistVC --> WishlistStore
+    WishlistStore -->|Persist| UserDefaults[(UserDefaults)]
+    WishlistStore -->|Notify| Grid
+    WishlistVC -->|Tap row| Detail
 ```
 
 ---
@@ -268,7 +305,10 @@ flowchart TD
 | `CenteredCardLayout` | `Map/Components/` | Snap-to-center horizontal paging |
 | `PlaceMarkerView` | `Map/Components/` | Custom circular map pins |
 | `PlaceAnnotation` | `Map/Components/` | `MKAnnotation` wrapping `MapPlace` + index |
-| `ProfileViewController` | `Profile/` | Profile UI and placeholder actions |
+| `ProfileViewController` | `Profile/` | Profile UI; pushes wishlist screen |
+| `WishlistStore` | `App/Core/` | Singleton store; UserDefaults encode/decode + notifications |
+| `WishlistViewController` | `Profile/` | Saved lists screen with empty state |
+| `WishlistRowCell` | `Profile/Components/` | Wishlist row with cover, stats, remove heart |
 
 ### Map selection logic
 
@@ -291,6 +331,15 @@ Explore cards and detail headers share:
 
 Set on `ExploreCardCell` and `ListDetailHeaderView` for matched transitions.
 
+### Wishlist sync
+
+`WishlistStore` posts `.wishlistDidChange` after every mutation. Observers:
+
+- **`ExploreCardCell`** — updates heart icon when wishlist changes elsewhere
+- **`WishlistViewController`** — reloads collection and toggles empty state
+
+Heart taps on Explore cards call `WishlistStore.shared.toggle(_:)` with a scale/burst animation. Removing from the wishlist screen uses the same store, so Explore hearts update when you return to that tab.
+
 ---
 
 ## Image Loading
@@ -298,6 +347,7 @@ Set on `ExploreCardCell` and `ListDetailHeaderView` for matched transitions.
 | Area | Mechanism | Placeholder |
 |------|-----------|-------------|
 | Explore grid / detail | Kingfisher (`kf.setImage` / `setRemoteImage`) | BlurHash via `BlurHashCache` where used |
+| Wishlist rows | Kingfisher | System fill background |
 | Map cards | `ImageLoader.shared` | Local loading state in cell |
 | Profile | SF Symbols only | N/A |
 
@@ -307,7 +357,7 @@ Set on `ExploreCardCell` and `ListDetailHeaderView` for matched transitions.
 
 ## Known Limitations
 
-- **Profile** data is hardcoded; menu and sign-out actions only print to the console.
+- **Profile** stats and bio are hardcoded; most menu items (except Wishlist) only print to the console.
 - **List detail** place tap logs the place name; no further navigation yet.
 - **Explore** error log mentions `explore_lists.json` but the bundle file is `lists.json`.
 - **No unit/UI tests** in the repository at this time.

@@ -1,13 +1,5 @@
 //
-//  PlaceCardCell.swift
-//  TravelApp
-//
-//  Created by Laptop X on 24/05/26.
-//
-
-
-//
-//  PlaceCardCell.swift
+//  MapPlaceCardCell.swift
 //  TravelApp
 //
 
@@ -214,6 +206,17 @@ final class PaddingLabel: UILabel {
         return CGSize(
             width: size.width + textInsets.left + textInsets.right,
             height: size.height + textInsets.top + textInsets.bottom
+        )
+    }
+
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        let textSize = super.sizeThatFits(CGSize(
+            width: max(0, size.width - textInsets.left - textInsets.right),
+            height: max(0, size.height - textInsets.top - textInsets.bottom)
+        ))
+        return CGSize(
+            width: textSize.width + textInsets.left + textInsets.right,
+            height: textSize.height + textInsets.top + textInsets.bottom
         )
     }
 }

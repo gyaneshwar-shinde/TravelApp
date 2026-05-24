@@ -5,12 +5,6 @@
 //  Created by Laptop X on 24/05/26.
 //
 
-
-//
-//  PlaceMarkerView.swift
-//  TravelApp
-//
-
 import MapKit
 
 final class PlaceMarkerView: MKAnnotationView {
@@ -38,6 +32,21 @@ final class PlaceMarkerView: MKAnnotationView {
         return iv
     }()
 
+    private let nameLabel: PaddingLabel = {
+        let l = PaddingLabel()
+        l.font = .systemFont(ofSize: 12, weight: .semibold)
+        l.textColor = .white
+        l.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        l.textInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+        l.layer.cornerRadius = 8
+        l.layer.masksToBounds = true
+        l.numberOfLines = 0
+        l.textAlignment = .center
+        l.alpha = 0
+        l.isUserInteractionEnabled = false
+        return l
+    }()
+
     private var isMarkerHighlighted = false
 
     override var annotation: MKAnnotation? {
@@ -48,8 +57,10 @@ final class PlaceMarkerView: MKAnnotationView {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
         canShowCallout = false
+        clipsToBounds = false   // allow name label to extend past the circle's frame
         frame = CGRect(x: 0, y: 0, width: selectedDiameter, height: selectedDiameter)
         addSubview(circleView)
+        addSubview(nameLabel)
         circleView.addSubview(iconImageView)
         configureForAnnotation()
         applyState(animated: false)
@@ -60,6 +71,7 @@ final class PlaceMarkerView: MKAnnotationView {
     override func prepareForReuse() {
         super.prepareForReuse()
         isMarkerHighlighted = false
+        nameLabel.alpha = 0
         applyState(animated: false)
     }
 
@@ -73,6 +85,8 @@ final class PlaceMarkerView: MKAnnotationView {
     private func configureForAnnotation() {
         iconImageView.image = categoryIcon()
         circleView.backgroundColor = categoryColor()
+        nameLabel.text = (annotation as? PlaceAnnotation)?.place.name
+        layoutNameLabel()
     }
 
     private func applyState(animated: Bool) {
@@ -88,6 +102,9 @@ final class PlaceMarkerView: MKAnnotationView {
                 dy: diameter * 0.26
             )
             self.iconImageView.tintColor = .white
+
+            self.nameLabel.alpha = self.isMarkerHighlighted ? 1 : 0
+            self.layoutNameLabel()
         }
 
         if animated {
@@ -102,6 +119,22 @@ final class PlaceMarkerView: MKAnnotationView {
         } else {
             block()
         }
+    }
+
+    private func layoutNameLabel() {
+        guard let text = nameLabel.text, !text.isEmpty else {
+            nameLabel.frame = .zero
+            return
+        }
+        let maxWidth: CGFloat = 180
+        let fitted = nameLabel.sizeThatFits(CGSize(width: maxWidth, height: .greatestFiniteMagnitude))
+        let labelWidth = min(ceil(fitted.width), maxWidth)
+        let labelHeight = ceil(fitted.height)
+        let circleRadius = (isMarkerHighlighted ? selectedDiameter : defaultDiameter) / 2
+        let gap: CGFloat = 6
+        let x = bounds.midX + circleRadius + gap
+        let y = bounds.midY - labelHeight / 2
+        nameLabel.frame = CGRect(x: x, y: y, width: labelWidth, height: labelHeight)
     }
 
     private func categoryColor() -> UIColor {
